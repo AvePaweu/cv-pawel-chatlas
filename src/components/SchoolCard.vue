@@ -59,6 +59,12 @@ export default {
 };
 </script>
 
+<style scoped>
+.card {
+  page-break-inside: avoid;
+}
+</style>
+
 <i18n>
     {
         en: {

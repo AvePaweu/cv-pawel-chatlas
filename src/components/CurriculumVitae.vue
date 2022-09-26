@@ -10,7 +10,7 @@
     </p>
     <div class="jumbotron">{{ getBio }}</div>
     <div class="row">
-      <div class="col-6">
+      <div class="col-lg-6">
         <h3 class="text-center">
           <i class="mdi mdi-briefcase" />
           {{ $t("WorkExperience") }}
@@ -23,7 +23,7 @@
         </h3>
         <school-card v-for="e in education" :key="e" :school="e" />
       </div>
-      <div class="col-6">
+      <div class="col-lg-6">
         <h3 class="text-center">
           <i class="mdi mdi-xml" />
           {{ $t("Skills") }}
@@ -48,9 +48,9 @@
         </h3>
         <hobby-card :hobbies="other" />
       </div>
-      <div class="jumbotron">
-        {{ $t("GDPR") }}
-      </div>
+    </div>
+    <div class="jumbotron">
+      <small>{{ $t("GDPR") }}</small>
     </div>
     <div class="d-grid">
       <button class="btn btn-info d-print-none my-5" @click="printMe">
@@ -77,19 +77,19 @@ export default {
         mobile: "+48 514 490 489",
         email: "pawelek90-90@o2.pl",
         bio: {
-          pl: "Ambitny programista z 7-letnim doświadczeniem komercyjnym w programowaniu aplikacji desktopowych i webowych z użyciem platformy .NET, wspieranej frameworkiem Angular w przypadku aplikacji webowych (wcześniej: AngularJS)",
-          en: "Ambitious software developer with 7-years experience in developing of web and desktop applications, using .NET platform technologies with Angular (in the past: AngularJS)",
+          pl: "Ambitny programista z 8-letnim doświadczeniem zawodowym w programowaniu aplikacji desktopowych i webowych z użyciem platformy .NET, wspieranej frameworkiem Angular w przypadku aplikacji webowych (wcześniej: AngularJS)",
+          en: "Ambitious software developer with 8-years experience in developing of web and desktop applications, using .NET platform technologies with Angular (in the past: AngularJS)",
         },
       },
       workExperience: [
         {
           name: "SE Bordnetze Polska Sp. z o.o.",
           location: "Gorzów Wielkopolski",
-          years: "X 2014 - XII 2021",
+          years: "X 2014 - ... (I 2023?)",
           logo: "sebnpl.jpg",
           position: {
-            pl: "Specjalista ds. programowania aplikacji",
-            en: "Application programming specialist",
+            pl: "Starszy specjalista ds. programowania aplikacji",
+            en: "Senior application programming specialist",
           },
           duties: {
             pl: "Rozwój aplikacji wspierających procesy HR, planowania produkcji oraz logistyczne w Grupie Sumitomo Electric Bordnetze",
@@ -105,12 +105,16 @@ export default {
               en: "Periodical Employee Assessments in SEBN PL and SEBN BG",
             },
             {
-              pl: "Ideenmanagement (zarządzanie wnioskami racjonalizatorskimi), pilot w SEBN PL (końcowa faza implementacji)",
-              en: "Ideenmanagement (a system to manage rationalization ideas), pilot in SEBN PL (finish of development)",
+              pl: "Ideenmanagement (zarządzanie wnioskami racjonalizatorskimi), pilot w SEBN PL",
+              en: "Ideenmanagement (a system to manage rationalization ideas), pilot in SEBN PL",
             },
             {
               pl: "Giełda Pracownicza SEBN PL",
               en: "Employee stock market in SEBN PL",
+            },
+            {
+              pl: "Module Execution System",
+              en: "Module Execution System",
             },
           ],
         },
@@ -167,8 +171,8 @@ export default {
           },
           icons: ["dot-net", "language-csharp"],
           details: {
-            pl: "C#, .NET Core (od wersji 2.x do 5.x), MVC, WebApi, EntityFramework, Blazor, WPF, VB.NET (znajomość bierna); najczęściej używane biblioteki zewnętrzne: Newtonsoft.Json, EPPlus (wcześniej: NPOI)",
-            en: "C#, .NET Core (versions 2.x to 5.x), MVC, WebApi, EntityFramework, Blazor, WPF, VB.NET (passive knowledge); the most used third-party libraries: Newtonsoft.Json, EPPlus (previously: NPOI)",
+            pl: "C#, .NET Core (od wersji 2.x do 6.x), MVC, WebApi, EntityFramework, Blazor, WPF, VB.NET (znajomość bierna)",
+            en: "C#, .NET Core (versions 2.x to 6.x), MVC, WebApi, EntityFramework, Blazor, WPF, VB.NET (passive knowledge)",
           },
         },
         {
@@ -290,8 +294,23 @@ export default {
   margin: 1rem;
   background-color: #e9ecef !important;
   border-radius: 0.3rem;
-  box-shadow: 1px 1px 10px grey;
   text-indent: 2rem;
+}
+
+@media screen {
+  .jumbotron {
+    box-shadow: 1px 1px 10px grey;
+  }
+}
+
+@media print {
+  hr {
+    display: none;
+  }
+
+  h3 {
+    margin-top: 1rem;
+  }
 }
 
 .list {

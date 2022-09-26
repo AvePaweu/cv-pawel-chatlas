@@ -1,11 +1,13 @@
 <template>
-  <div class="card mx-3">
+  <div class="card mx-3 d-print-block">
     <div class="card-body">
       <h5 class="text-center card-title">
         <template v-for="(flag, index) in language.flags" :key="flag">
-          <country-flag :country="flag" :shadow="true" /><span
-            v-if="index < language.flags.length - 1"
-            >&#47;</span
+          <span>
+            <country-flag :country="flag" :shadow="true" /><span
+              v-if="index < language.flags.length - 1"
+              >&#47;</span
+            ></span
           >
         </template>
         {{ getLanguage }}
@@ -32,3 +34,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.card {
+  page-break-before: avoid;
+  page-break-inside: avoid;
+}
+
+@media print {
+  h5 > span {
+    display: none;
+  }
+}
+</style>

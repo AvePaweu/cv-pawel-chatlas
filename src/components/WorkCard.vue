@@ -57,6 +57,14 @@ export default {
 };
 </script>
 
+<style scoped>
+@media print {
+  img {
+    padding: 1rem;
+  }
+}
+</style>
+
 <i18n>
 {
     "pl": {
